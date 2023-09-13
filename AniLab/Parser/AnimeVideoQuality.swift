@@ -19,20 +19,18 @@ extension HTMLParser {
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 print("Error \(error)")
-                completion([]) // Return an empty array in case of error
+                completion([]) 
                 return
             }
             if let data = data, let dataString = String(data: data, encoding: .windowsCP1251) {
                 if let doc = try? HTML(html: dataString, encoding: .windowsCP1251) {
                     let sources = doc.xpath("//source")
-                    print(sources.count)
                     for source in sources {
                         if let src = source["src"], let title = source["label"] {
                             qualities.append(VideoQuality(title: title, link: src))
-                            print(title)
                         }
                     }
-                    completion(qualities) // Pass the populated array to the completion handler
+                    completion(qualities)
                 }
             }
         }.resume()

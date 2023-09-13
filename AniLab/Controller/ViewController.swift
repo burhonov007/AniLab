@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet var animeTableView: UITableView!
     var animeList: [Anime] = []
+    var sortLink = ""
     private var currentPage = 0
     
     
@@ -25,19 +26,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         loadNextPage()
     }
     
+    
+    @IBAction func sortButton(_ sender: Any) {
+        let SortTableVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SortTableVC")
+        self.navigationController?.pushViewController(SortTableVC, animated: true)
+    }
+
+    
+    
+    
     private func loadNextPage() {
         currentPage += 1
-        print(animeList.count)
-        let nextPageURL = "https://jut.su/anime/page-\(currentPage)/"
-        print(nextPageURL)
-        print(animeList.count)
+        let nextPageURL = "https://jut.su/anime\(sortLink)/page-\(currentPage)/"
         HTMLParser.getHTML(from: nextPageURL) { [weak self] animeData in
-            self?.animeList += animeData
-            DispatchQueue.main.async {
-                if let act = self!.activityIndicator {
-                    act.stopAnimating()
-            }
-                self?.animeTableView.reloadData()
+            if !animeData.isEmpty {
+                self?.animeList += animeData
+                DispatchQueue.main.async {
+                    if let act = self!.activityIndicator {
+                        act.stopAnimating()
+                }
+                    self?.animeTableView.reloadData()
+                }
             }
         }
     }
@@ -54,7 +63,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = animeTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         let anime = animeList[indexPath.row]
         cell.configure(with: anime)
-        if currentPage < 32 {
+        if currentPage < 34 {
             if indexPath.row >= animeList.count - 1 {
                 loadNextPage()
             }
@@ -64,12 +73,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let anime = animeList[indexPath.row]
-            
+        
         let animeInfoVC = storyboard?.instantiateViewController(withIdentifier: "AnimeDetailVС") as! AnimeInfoViewController
         animeInfoVC.name = anime.name
         animeInfoVC.title = anime.name
         animeInfoVC.link = anime.link
         animeInfoVC.posterUrl = anime.poster
+//        animeInfoVC.anime.append(anime)
         self.navigationController?.pushViewController(animeInfoVC, animated: true)
       
     }

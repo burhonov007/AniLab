@@ -42,6 +42,9 @@ public class HTMLParser {
                             
                         }
                     }
+                    if animeList.count == 0 {
+                        completion([]) 
+                    }
                     completion(animeList) // Вызываем completion с массивом после завершения обработки данных
                 }
             }
