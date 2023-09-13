@@ -35,18 +35,8 @@ class VideoQualityTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let videoURL = URL(string: videoQuality[indexPath.row].link)
-       
-        
-        let videoURL = URL(string: "https://tengrinews.kz/userdata/news/2023/news_510042/photo_443335.mp4")
-   
-        
-        
-        
-        print(videoURL)
-        
+        let videoURL = URL(string: videoQuality[indexPath.row].link)
         var request = URLRequest(url: videoURL!)
-        
         let userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.0.0 Safari/537.36 OPR/100.0.0.0"
         request.setValue(userAgent, forHTTPHeaderField: "User-Agent")
            
