@@ -8,8 +8,6 @@
 import UIKit
 
 class SortTableViewCell: UITableViewCell {
-
     @IBOutlet weak var title: UILabel!
-    
     @IBOutlet weak var link: UILabel!
 }

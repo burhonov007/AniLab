@@ -9,14 +9,16 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    //  MARK: - Loader
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: - TableView
     @IBOutlet var animeTableView: UITableView!
     var animeList: [Anime] = []
     var sortLink = ""
     private var currentPage = 0
     
-    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         if let act = activityIndicator {
@@ -26,15 +28,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         loadNextPage()
     }
     
-    
+    // MARK: - Open sortButton
     @IBAction func sortButton(_ sender: Any) {
         let SortTableVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SortTableVC")
         self.navigationController?.pushViewController(SortTableVC, animated: true)
     }
 
-    
-    
-    
+    // MARK: - Load Pages (Pagination)
     private func loadNextPage() {
         currentPage += 1
         let nextPageURL = "https://jut.su/anime\(sortLink)/page-\(currentPage)/"
@@ -52,13 +52,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
 
-  
-    
+    // MARK: - numberOfRowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return animeList.count
     }
 
-    
+    // MARK: - cellForRowAt
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = animeTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         let anime = animeList[indexPath.row]
@@ -71,9 +70,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    // MARK: - didSelectRowAt (SEND data to AnimeDetailViewController and Show in UI)
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let anime = animeList[indexPath.row]
-        
         let animeInfoVC = storyboard?.instantiateViewController(withIdentifier: "AnimeDetailVС") as! AnimeInfoViewController
         animeInfoVC.name = anime.name
         animeInfoVC.title = anime.name
@@ -81,9 +80,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         animeInfoVC.posterUrl = anime.poster
 //        animeInfoVC.anime.append(anime)
         self.navigationController?.pushViewController(animeInfoVC, animated: true)
-      
     }
-    
-    
 }
 

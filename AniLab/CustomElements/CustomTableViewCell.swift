@@ -8,12 +8,7 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
+    //MARK: - OUTLETS
     @IBOutlet weak var animeNameLabel: UILabel!
     @IBOutlet weak var animeLink: UILabel!
     @IBOutlet weak var animeSeriesLabel: UILabel!
@@ -27,7 +22,6 @@ class CustomTableViewCell: UITableViewCell {
         
         let url = URL(string: anime.poster)!
         
-        // Используйте URLSession для асинхронной загрузки изображения
         URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
             if let data = data, let image = UIImage(data: data) {
                 DispatchQueue.main.async {

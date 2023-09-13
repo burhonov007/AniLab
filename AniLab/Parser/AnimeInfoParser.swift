@@ -9,6 +9,7 @@ import Foundation
 import Kanna
 
 extension HTMLParser {
+    //MARK: - GET ANIME INFO
     static func getAnimeInfo(from url: String, completion: @escaping ([AnimeInfo]) -> Void) {
             var animeInfoArr = [AnimeInfo]()
             
@@ -39,7 +40,7 @@ extension HTMLParser {
         }
     }
 
-
+//MARK: - GET Age Rating
 func extractAgeRating(from doc: HTMLDocument) -> String {
     if let aniAgeRating = doc.at_css("span.age_rating_all") {
         return aniAgeRating.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
@@ -47,6 +48,7 @@ func extractAgeRating(from doc: HTMLDocument) -> String {
     return ""
 }
 
+//MARK: - GET Rating
 func extractRating(from doc: HTMLDocument) -> String {
     if let ratingValue = doc.at_xpath("//span[@class='rating_meta']/span/span[2]") {
         return ratingValue.text ?? ""
@@ -54,6 +56,7 @@ func extractRating(from doc: HTMLDocument) -> String {
     return ""
 }
 
+//MARK: - GET Original Title
 func extractOriginalTitle(from doc: HTMLDocument) -> String {
     if let ratingValue = doc.at_xpath("//span[@class='rating_meta']/span/span[1]") {
         if let text = ratingValue.innerHTML?.trimmingCharacters(in: .whitespacesAndNewlines) {
@@ -67,6 +70,7 @@ func extractOriginalTitle(from doc: HTMLDocument) -> String {
     return ""
 }
 
+//MARK: - GET Year Of Issue
 func extractYearOfIssue(from doc: HTMLDocument) -> String {
     if let desc = doc.at_css("div.under_video_additional")?.content {
         let searchString = "Год выпуска: Аниме"
@@ -87,6 +91,7 @@ func extractYearOfIssue(from doc: HTMLDocument) -> String {
     return ""
 }
 
+//MARK: - GET Genres
 func extractGenre(from doc: HTMLDocument) -> String {
     if let desc = doc.at_css("div.under_video_additional")?.content,
        let range = desc.range(of: ".") {
