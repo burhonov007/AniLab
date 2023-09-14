@@ -13,6 +13,8 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var animeLink: UILabel!
     @IBOutlet weak var animeSeriesLabel: UILabel!
     @IBOutlet weak var animeImageView: UIImageView!
+    @IBAction func addToFavouriteButton() {
+    }
     
     func configure(with anime: Anime) {
         animeNameLabel.text = anime.name

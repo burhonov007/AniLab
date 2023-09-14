@@ -14,9 +14,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - TableView
     @IBOutlet var animeTableView: UITableView!
+
+    
     var animeList: [Anime] = []
     var sortLink = ""
+    var filterLink = ""
     private var currentPage = 0
+    var goToAnotherPage: Bool = true
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -24,6 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let act = activityIndicator {
             act.startAnimating()
         }
+        print(filterLink)
         title = "Anime List"
         loadNextPage()
     }
@@ -33,11 +38,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let SortTableVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SortTableVC")
         self.navigationController?.pushViewController(SortTableVC, animated: true)
     }
+    
+    @IBAction func filterButton(_ sender: Any) {
+        let FilterTableVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FilterTableVC")
+        self.navigationController?.pushViewController(FilterTableVC, animated: true)
+    }
+    
 
     // MARK: - Load Pages (Pagination)
     private func loadNextPage() {
         currentPage += 1
-        let nextPageURL = "https://jut.su/anime\(sortLink)/page-\(currentPage)/"
+        let nextPageURL = "https://jut.su/anime/\(filterLink)\(sortLink)/page-\(currentPage)/"
         HTMLParser.getHTML(from: nextPageURL) { [weak self] animeData in
             if !animeData.isEmpty {
                 self?.animeList += animeData
@@ -47,10 +58,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
                     self?.animeTableView.reloadData()
                 }
+            } else {
+                self!.goToAnotherPage = false
+                DispatchQueue.main.async {
+                    if self?.filterLink.isEmpty == false && self?.animeList.isEmpty == true {
+                        Alerts.AccessDeniedAlertOrNoData(title: "Нет аниме", message: "По выбранным вами критериям аниме отсутствуют. Пожалуйста, укажите другие категории.", viewController: self!)
+                    }
+                    self?.activityIndicator.stopAnimating()
+                    self!.activityIndicator.isHidden = true
+                }
             }
         }
     }
-
 
     // MARK: - numberOfRowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,7 +81,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = animeTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         let anime = animeList[indexPath.row]
         cell.configure(with: anime)
-        if currentPage < 34 {
+        if goToAnotherPage {
             if indexPath.row >= animeList.count - 1 {
                 loadNextPage()
             }
@@ -74,11 +93,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let anime = animeList[indexPath.row]
         let animeInfoVC = storyboard?.instantiateViewController(withIdentifier: "AnimeDetailVС") as! AnimeInfoViewController
-        animeInfoVC.name = anime.name
+        animeInfoVC.series = anime.series
         animeInfoVC.title = anime.name
         animeInfoVC.link = anime.link
         animeInfoVC.posterUrl = anime.poster
-//        animeInfoVC.anime.append(anime)
         self.navigationController?.pushViewController(animeInfoVC, animated: true)
     }
 }

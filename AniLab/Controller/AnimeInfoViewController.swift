@@ -16,33 +16,25 @@ class AnimeInfoViewController: UIViewController {
     @IBOutlet weak var yearOfIssue: UILabel!
     @IBOutlet weak var ageRating: UILabel!
     
-    var name: String = ""
+    var series: String = ""
     var posterUrl: String = ""
     var link: String = ""
     var animeInfo: [AnimeInfo] = []
     var animeEpisodes: [Episodes] = []
+    var animeToFavourites: [Anime] = []
     
   
     
-//    @IBAction func addToFavorites() {
-//        var existingAnime = UserDefaults.standard.array(forKey: "anime") as? [Anime] ?? []
-//
-//        // Создайте новый объект Anime и добавьте его в массив
-//        let newAnime = Anime(
-//        existingAnime.append(newAnime)
-//
-//        // Сохраните обновленные данные в UserDefaults
-//        UserDefaults.standard.set(existingAnime, forKey: "anime")
-//
-//        // Теперь у вас есть обновленные данные, включая новое аниме
-//        print(anime)
-//    }
+    @IBAction func addToFavorites() {
+        animeToFavourites.append(Anime(name: self.title!, link: link, series: series, poster: posterUrl))
+        print(animeToFavourites)
+    }
 
 
     
     @IBAction func watchEpisodes() {
         let watchEpisodesVC = storyboard?.instantiateViewController(withIdentifier: "EpisodesVC") as! EpisodesTableViewController
-        HTMLParser.getEpisodes(from: link, animeName: name) { animeData in
+        HTMLParser.getEpisodes(from: link, animeName: self.title!) { animeData in
             self.animeEpisodes = animeData
             DispatchQueue.main.async {
                 watchEpisodesVC.AnimeEpisodes = self.animeEpisodes

@@ -15,7 +15,7 @@ class VideoQualityTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if videoQuality.isEmpty {
-            Alerts.AccessDeniedAlert(title: "Запрещено", message: "К сожалению, в вашей стране это видео недоступно.", viewController: self)
+            Alerts.AccessDeniedAlertOrNoData(title: "Запрещено", message: "К сожалению, в вашей стране это видео недоступно.", viewController: self)
         }
     }
     
