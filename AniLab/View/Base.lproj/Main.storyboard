@@ -152,6 +152,87 @@
             </objects>
             <point key="canvasLocation" x="1617" y="-577"/>
         </scene>
+        <!--Favourite Table View Controller-->
+        <scene sceneID="fso-6p-FRe">
+            <objects>
+                <tableViewController storyboardIdentifier="FavouriteVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dvc-rP-kJD" customClass="FavouriteTableViewController" customModule="AniLab" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="zCD-oJ-mEe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="M31-lv-dwv" customClass="CustomTableViewCell" customModule="AniLab" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="375" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M31-lv-dwv" id="Ujz-xv-ADL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bNF-af-3oY">
+                                            <rect key="frame" x="16" y="11" width="343" height="98"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qw0-C2-qs4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="98" height="98"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="qw0-C2-qs4" secondAttribute="height" multiplier="1:1" id="3aa-nV-We6"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="redraw" axis="vertical" distribution="equalSpacing" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Po0-0X-IrC">
+                                                    <rect key="frame" x="118" y="0.0" width="225" height="56"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="anime title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNn-IW-Zhr">
+                                                            <rect key="frame" x="0.0" y="0.0" width="82" height="22.5"/>
+                                                            <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anime link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vF7-sP-D9u">
+                                                            <rect key="frame" x="0.0" y="30" width="61.5" height="0.0"/>
+                                                            <fontDescription key="fontDescription" name="KohinoorBangla-Light" family="Kohinoor Bangla" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anime series count" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHV-aY-Ib4">
+                                                            <rect key="frame" x="0.0" y="37.5" width="111" height="18.5"/>
+                                                            <fontDescription key="fontDescription" name="KohinoorBangla-Light" family="Kohinoor Bangla" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Po0-0X-IrC" secondAttribute="trailing" id="If8-QU-7sK"/>
+                                                <constraint firstItem="Po0-0X-IrC" firstAttribute="leading" secondItem="qw0-C2-qs4" secondAttribute="trailing" constant="20" id="YTR-nk-n9I"/>
+                                                <constraint firstItem="qw0-C2-qs4" firstAttribute="centerY" secondItem="bNF-af-3oY" secondAttribute="centerY" id="jDm-ld-Bah"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bNF-af-3oY" secondAttribute="bottom" id="E5l-Ec-U7P"/>
+                                        <constraint firstItem="bNF-af-3oY" firstAttribute="leading" secondItem="Ujz-xv-ADL" secondAttribute="leadingMargin" id="b8Y-MM-exq"/>
+                                        <constraint firstItem="bNF-af-3oY" firstAttribute="top" secondItem="Ujz-xv-ADL" secondAttribute="topMargin" id="iD7-t0-Ilp"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="bNF-af-3oY" secondAttribute="trailing" id="yIb-fs-kDt"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="animeImageView" destination="qw0-C2-qs4" id="5BA-kQ-JFT"/>
+                                    <outlet property="animeLink" destination="vF7-sP-D9u" id="m2R-Nf-iya"/>
+                                    <outlet property="animeNameLabel" destination="uNn-IW-Zhr" id="1sy-3V-e6X"/>
+                                    <outlet property="animeSeriesLabel" destination="WHV-aY-Ib4" id="DyW-aw-7Gw"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Dvc-rP-kJD" id="Xv0-AB-i4M"/>
+                            <outlet property="delegate" destination="Dvc-rP-kJD" id="Oee-tX-4aZ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SEC-dU-tSd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2260" y="-577"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -161,78 +242,75 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="sectionIndexBackgroundColor" red="0.33180831406601674" green="1" blue="0.9348291501340974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="jmm-1R-VGN">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Ввеедите название аниме" showsCancelButton="YES" id="jmm-1R-VGN">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                            <connections>
+                                <outlet property="delegate" destination="BYZ-38-t0r" id="frD-aq-Ptz"/>
+                            </connections>
                         </searchBar>
                         <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="sSd-dg-DUx">
-                            <rect key="frame" x="0.0" y="647.5" width="375" height="20"/>
+                            <rect key="frame" x="0.0" y="654.5" width="375" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="zzw-rF-cYE" customClass="CustomTableViewCell" customModule="AniLab" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88.5" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="95.5" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zzw-rF-cYE" id="TwV-wV-nrx">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anime link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFF-wd-Oal">
-                                            <rect key="frame" x="127" y="80.5" width="61.5" height="18.5"/>
-                                            <fontDescription key="fontDescription" name="KohinoorBangla-Light" family="Kohinoor Bangla" pointSize="13"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="k9S-lK-HA3">
-                                            <rect key="frame" x="341" y="51" width="18" height="18"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zwe-Op-e8G">
+                                            <rect key="frame" x="16" y="11" width="343" height="98"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g6A-iG-7Th">
+                                                    <rect key="frame" x="0.0" y="0.0" width="98" height="98"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="g6A-iG-7Th" secondAttribute="height" multiplier="1:1" id="xaT-3e-0Tz"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="redraw" axis="vertical" distribution="equalSpacing" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="R6H-8W-kss">
+                                                    <rect key="frame" x="118" y="0.0" width="225" height="56"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="anime title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghd-wE-NyT">
+                                                            <rect key="frame" x="0.0" y="0.0" width="82" height="22.5"/>
+                                                            <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anime link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFF-wd-Oal">
+                                                            <rect key="frame" x="0.0" y="30" width="61.5" height="0.0"/>
+                                                            <fontDescription key="fontDescription" name="KohinoorBangla-Light" family="Kohinoor Bangla" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anime series count" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0j-sT-vsF">
+                                                            <rect key="frame" x="0.0" y="37.5" width="111" height="18.5"/>
+                                                            <fontDescription key="fontDescription" name="KohinoorBangla-Light" family="Kohinoor Bangla" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="k9S-lK-HA3" secondAttribute="height" multiplier="1:1" id="I5m-ks-zh6"/>
+                                                <constraint firstItem="R6H-8W-kss" firstAttribute="leading" secondItem="g6A-iG-7Th" secondAttribute="trailing" constant="20" id="j6r-cb-WSg"/>
+                                                <constraint firstAttribute="trailing" secondItem="R6H-8W-kss" secondAttribute="trailing" id="o3c-fZ-XAw"/>
+                                                <constraint firstItem="g6A-iG-7Th" firstAttribute="centerY" secondItem="Zwe-Op-e8G" secondAttribute="centerY" id="ul4-TW-d7t"/>
                                             </constraints>
-                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal">
-                                                <imageReference key="image" image="bookmark" catalog="system" symbolScale="default"/>
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="addToFavouriteButton:" destination="zzw-rF-cYE" eventType="touchUpInside" id="6dl-xv-nfu"/>
-                                            </connections>
-                                        </button>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g6A-iG-7Th">
-                                            <rect key="frame" x="16" y="15" width="90" height="90"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="g6A-iG-7Th" secondAttribute="height" multiplier="1:1" id="Uov-if-KXE"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anime series count" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0j-sT-vsF">
-                                            <rect key="frame" x="126" y="80.5" width="215" height="18.5"/>
-                                            <fontDescription key="fontDescription" name="KohinoorBangla-Light" family="Kohinoor Bangla" pointSize="13"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="asdasd" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghd-wE-NyT">
-                                            <rect key="frame" x="126" y="21" width="205" height="22.5"/>
-                                            <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="16"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="k9S-lK-HA3" firstAttribute="leading" secondItem="i0j-sT-vsF" secondAttribute="trailing" id="4Pz-eV-HdP"/>
-                                        <constraint firstItem="g6A-iG-7Th" firstAttribute="leading" secondItem="TwV-wV-nrx" secondAttribute="leadingMargin" id="BwJ-Bo-yIk"/>
-                                        <constraint firstItem="i0j-sT-vsF" firstAttribute="leading" secondItem="g6A-iG-7Th" secondAttribute="trailing" constant="20" id="Fei-jk-Sz4"/>
-                                        <constraint firstItem="ghd-wE-NyT" firstAttribute="leading" secondItem="g6A-iG-7Th" secondAttribute="trailing" constant="20" id="Hcq-hA-qI3"/>
-                                        <constraint firstItem="NFF-wd-Oal" firstAttribute="leading" secondItem="g6A-iG-7Th" secondAttribute="trailing" constant="21" id="Hu2-pn-ysE"/>
-                                        <constraint firstItem="i0j-sT-vsF" firstAttribute="firstBaseline" secondItem="NFF-wd-Oal" secondAttribute="baseline" id="OPN-uC-J7n"/>
-                                        <constraint firstItem="NFF-wd-Oal" firstAttribute="centerY" secondItem="i0j-sT-vsF" secondAttribute="centerY" id="QK8-Oj-G7M"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="g6A-iG-7Th" secondAttribute="bottom" constant="4" id="RwJ-EA-iSL"/>
-                                        <constraint firstItem="g6A-iG-7Th" firstAttribute="top" secondItem="TwV-wV-nrx" secondAttribute="topMargin" constant="4" id="SBW-TY-eDL"/>
-                                        <constraint firstItem="ghd-wE-NyT" firstAttribute="top" secondItem="TwV-wV-nrx" secondAttribute="topMargin" constant="10" id="UOb-dc-3zb"/>
-                                        <constraint firstItem="k9S-lK-HA3" firstAttribute="top" secondItem="TwV-wV-nrx" secondAttribute="topMargin" constant="40" id="XAO-CW-cj5"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="i0j-sT-vsF" secondAttribute="bottom" constant="10" id="ZMb-8O-0NY"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="ghd-wE-NyT" secondAttribute="trailing" constant="28" id="euV-ul-48q"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="k9S-lK-HA3" secondAttribute="bottom" constant="40" id="hPd-5M-nnv"/>
-                                        <constraint firstItem="k9S-lK-HA3" firstAttribute="trailing" secondItem="TwV-wV-nrx" secondAttribute="trailingMargin" id="xcV-xg-A3q"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Zwe-Op-e8G" secondAttribute="trailing" id="TW2-EN-FA4"/>
+                                        <constraint firstItem="Zwe-Op-e8G" firstAttribute="top" secondItem="TwV-wV-nrx" secondAttribute="topMargin" id="Yig-Sw-vqc"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Zwe-Op-e8G" secondAttribute="bottom" id="fGz-Rs-tSE"/>
+                                        <constraint firstItem="Zwe-Op-e8G" firstAttribute="leading" secondItem="TwV-wV-nrx" secondAttribute="leadingMargin" id="rVq-Za-qrd"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -262,19 +340,21 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Item" image="star" catalog="system" id="TD1-je-0NZ"/>
-                            <barButtonItem title="Item" image="magnifyingglass" catalog="system" id="xib-nJ-gW4"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="star" catalog="system" id="TD1-je-0NZ">
+                            <connections>
+                                <action selector="openFavourites:" destination="BYZ-38-t0r" id="f6K-10-fD7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="sSd-dg-DUx" id="qmN-Pw-41C"/>
                         <outlet property="animeTableView" destination="Dxo-Fn-2d1" id="BoI-GM-9L2"/>
+                        <outlet property="searchBar" destination="jmm-1R-VGN" id="8ka-um-bpP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="96.7016491754123"/>
+            <point key="canvasLocation" x="972" y="98"/>
         </scene>
         <!--Anime Info View Controller-->
         <scene sceneID="T4F-sb-JEf">
@@ -284,100 +364,94 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PDy-iw-YI2">
-                                <rect key="frame" x="112" y="40" width="151" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="DXd-V5-Mmj"/>
-                                </constraints>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="I2N-Pz-M1W">
-                                <rect key="frame" x="38" y="230" width="299" height="274"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="397-DG-KIp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="405"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Original Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iV-hK-fDN">
-                                        <rect key="frame" x="0.0" y="0.0" width="299" height="18"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBM-yy-glX">
-                                        <rect key="frame" x="0.0" y="39" width="299" height="18"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qt-Ts-C2J">
-                                        <rect key="frame" x="0.0" y="78" width="299" height="18"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year Of Issue" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loP-2I-g8n">
-                                        <rect key="frame" x="0.0" y="117" width="299" height="18"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqo-LJ-Ig0">
-                                        <rect key="frame" x="0.0" y="156" width="299" height="18"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJM-uz-Pv8">
-                                        <rect key="frame" x="0.0" y="195" width="299" height="29"/>
-                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="0.82253914138897744" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="В избранное"/>
-                                        <connections>
-                                            <action selector="addToFavorites" destination="fNO-ol-jvr" eventType="touchUpInside" id="sXy-gE-o43"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJz-ar-Sqm">
-                                        <rect key="frame" x="0.0" y="245" width="299" height="29"/>
-                                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="0.84527183065609057" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <color key="tintColor" systemColor="labelColor"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Смотреть"/>
-                                        <connections>
-                                            <action selector="watchEpisodes" destination="fNO-ol-jvr" eventType="touchUpInside" id="QKH-b2-gUg"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qVn-b7-jAv">
+                                        <rect key="frame" x="112" y="0.0" width="151" height="150"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PDy-iw-YI2">
+                                                <rect key="frame" x="0.0" y="0.0" width="151" height="150"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hIu-JM-w2z">
+                                        <rect key="frame" x="20" y="183" width="335" height="222"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Original Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iV-hK-fDN">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="20"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBM-yy-glX">
+                                                <rect key="frame" x="0.0" y="30" width="335" height="20"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qt-Ts-C2J">
+                                                <rect key="frame" x="0.0" y="60" width="335" height="20"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqo-LJ-Ig0">
+                                                <rect key="frame" x="0.0" y="90" width="335" height="20"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Year Of Issue" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loP-2I-g8n">
+                                                <rect key="frame" x="0.0" y="120" width="335" height="20"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJM-uz-Pv8">
+                                                <rect key="frame" x="0.0" y="150" width="335" height="31"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="13"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="В избранное"/>
+                                                <connections>
+                                                    <action selector="addToFavorites" destination="fNO-ol-jvr" eventType="touchUpInside" id="sXy-gE-o43"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJz-ar-Sqm">
+                                                <rect key="frame" x="0.0" y="191" width="335" height="31"/>
+                                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="0.84527183065609057" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="13"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Смотреть"/>
+                                                <connections>
+                                                    <action selector="watchEpisodes" destination="fNO-ol-jvr" eventType="touchUpInside" id="QKH-b2-gUg"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="cBM-yy-glX" firstAttribute="leading" secondItem="I2N-Pz-M1W" secondAttribute="leading" id="2Tx-ud-DkF"/>
-                                    <constraint firstItem="Qqo-LJ-Ig0" firstAttribute="leading" secondItem="I2N-Pz-M1W" secondAttribute="leading" id="6Ks-YF-Ox5"/>
-                                    <constraint firstAttribute="bottom" secondItem="BJz-ar-Sqm" secondAttribute="bottom" id="CUH-LJ-1li"/>
-                                    <constraint firstAttribute="trailing" secondItem="BJz-ar-Sqm" secondAttribute="trailing" id="Ctn-rn-DJf"/>
-                                    <constraint firstItem="1Qt-Ts-C2J" firstAttribute="leading" secondItem="I2N-Pz-M1W" secondAttribute="leading" id="FNH-ZQ-0PA"/>
-                                    <constraint firstAttribute="trailing" secondItem="Qqo-LJ-Ig0" secondAttribute="trailing" id="Hkc-4p-EFt"/>
-                                    <constraint firstItem="0iV-hK-fDN" firstAttribute="leading" secondItem="I2N-Pz-M1W" secondAttribute="leading" id="Ilq-5T-Fmg"/>
-                                    <constraint firstAttribute="trailing" secondItem="1Qt-Ts-C2J" secondAttribute="trailing" id="JcJ-Mz-7qa"/>
-                                    <constraint firstItem="loP-2I-g8n" firstAttribute="leading" secondItem="I2N-Pz-M1W" secondAttribute="leading" id="Niy-aK-ScV"/>
-                                    <constraint firstAttribute="trailing" secondItem="0iV-hK-fDN" secondAttribute="trailing" id="VuJ-6G-4HM"/>
-                                    <constraint firstItem="BJM-uz-Pv8" firstAttribute="leading" secondItem="I2N-Pz-M1W" secondAttribute="leading" id="Z1C-cW-crp"/>
-                                    <constraint firstAttribute="trailing" secondItem="BJM-uz-Pv8" secondAttribute="trailing" id="aNl-tp-LlL"/>
-                                    <constraint firstAttribute="trailing" secondItem="cBM-yy-glX" secondAttribute="trailing" id="bEH-3M-cfi"/>
-                                    <constraint firstAttribute="trailing" secondItem="loP-2I-g8n" secondAttribute="trailing" id="h9Z-cu-hia"/>
-                                    <constraint firstItem="BJz-ar-Sqm" firstAttribute="leading" secondItem="I2N-Pz-M1W" secondAttribute="leading" id="yXg-pl-j1u"/>
+                                    <constraint firstItem="hIu-JM-w2z" firstAttribute="leading" secondItem="397-DG-KIp" secondAttribute="leading" constant="20" id="0PW-Td-HcK"/>
+                                    <constraint firstItem="qVn-b7-jAv" firstAttribute="leading" secondItem="397-DG-KIp" secondAttribute="leading" constant="112" id="2N9-Bp-jtS"/>
+                                    <constraint firstAttribute="trailing" secondItem="hIu-JM-w2z" secondAttribute="trailing" constant="20" id="TyT-Fk-Hfh"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0SY-U9-Udv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PDy-iw-YI2" firstAttribute="top" secondItem="0SY-U9-Udv" secondAttribute="top" constant="40" id="Lhh-1d-15V"/>
-                            <constraint firstItem="0SY-U9-Udv" firstAttribute="trailing" secondItem="I2N-Pz-M1W" secondAttribute="trailing" constant="38" id="TnE-wm-Epv"/>
-                            <constraint firstItem="PDy-iw-YI2" firstAttribute="centerX" secondItem="mIW-uR-K4n" secondAttribute="centerX" id="Uh3-q2-0LQ"/>
-                            <constraint firstItem="I2N-Pz-M1W" firstAttribute="leading" secondItem="0SY-U9-Udv" secondAttribute="leading" constant="38" id="e20-ya-HMh"/>
-                            <constraint firstItem="PDy-iw-YI2" firstAttribute="leading" secondItem="0SY-U9-Udv" secondAttribute="leading" constant="112" id="tXV-xX-sbY"/>
-                            <constraint firstItem="I2N-Pz-M1W" firstAttribute="top" secondItem="PDy-iw-YI2" secondAttribute="bottom" constant="40" id="tzi-76-Tjr"/>
+                            <constraint firstItem="0SY-U9-Udv" firstAttribute="bottom" secondItem="397-DG-KIp" secondAttribute="bottom" constant="262" id="5A7-bH-c6L"/>
+                            <constraint firstItem="397-DG-KIp" firstAttribute="leading" secondItem="0SY-U9-Udv" secondAttribute="leading" id="7r3-Er-pkS"/>
+                            <constraint firstItem="0SY-U9-Udv" firstAttribute="trailing" secondItem="397-DG-KIp" secondAttribute="trailing" id="aQu-hs-44w"/>
+                            <constraint firstItem="397-DG-KIp" firstAttribute="top" secondItem="0SY-U9-Udv" secondAttribute="top" id="vKX-uf-i46"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yZa-C4-Boj"/>
                     <connections>
+                        <outlet property="addToFavouritesButton" destination="BJM-uz-Pv8" id="1yi-JG-khY"/>
                         <outlet property="ageRating" destination="Qqo-LJ-Ig0" id="abN-L1-eWB"/>
                         <outlet property="genre" destination="1Qt-Ts-C2J" id="x7A-Ks-y53"/>
                         <outlet property="originalTitle" destination="0iV-hK-fDN" id="0VA-jn-uKl"/>
@@ -526,10 +600,8 @@
     </scenes>
     <resources>
         <image name="arrow.up.arrow.down" catalog="system" width="128" height="98"/>
-        <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="lineweight" catalog="system" width="128" height="110"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="sort" width="512" height="512"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">

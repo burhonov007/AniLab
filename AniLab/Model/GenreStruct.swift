@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Filter {
+struct Genre {
     var title: String
     var link: String
     var isSelected: Bool

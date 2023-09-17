@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Anime {
+struct Anime: Codable {
     var name: String
     var link: String
     var series: String

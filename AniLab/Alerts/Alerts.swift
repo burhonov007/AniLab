@@ -18,4 +18,13 @@ class Alerts {
         alert.addAction(OKAction)
         viewController.present(alert, animated: true, completion: nil)
     }
+    
+    static func ErrorInURLSessionAlert() {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Ошибка", message: "Произошла ошибка при загрузке данных включите интернет или перезагрузите приложение", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            appDelegate?.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+    }
 }

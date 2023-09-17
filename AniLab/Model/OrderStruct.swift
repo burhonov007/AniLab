@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Sort{
+struct Order{
     var title: String
     var link: String
 }

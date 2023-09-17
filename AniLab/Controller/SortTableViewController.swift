@@ -9,19 +9,18 @@ import UIKit
 
 class SortTableViewController: UITableViewController {
     
-    var sortList:[Sort] = [
-        Sort(title: "По рейтингу", link: ""),
-        Sort(title: "По алфавиту", link: "/order-by-name"),
-        Sort(title: "По количеству серий", link: "/order-by-count"),
-        Sort(title: "По году выхода", link: "/order-by-date"),
-        Sort(title: "По дате добавления", link: "/order-by-add")
-    ]
+    var sortList:[Order] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        HTMLParser.getOrder { orderData in
+            self.sortList += orderData
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

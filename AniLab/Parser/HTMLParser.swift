@@ -13,7 +13,7 @@ public class HTMLParser {
         let request = URLRequest(url: myURL)
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error \(error)")
+                Alerts.ErrorInURLSessionAlert()
                 completion([])
                 return
             }
@@ -33,7 +33,6 @@ public class HTMLParser {
                             animeSeries = animeSeries.replacingOccurrences(of: "сезона", with: "сезона ")
                             animeSeries = animeSeries.replacingOccurrences(of: "сезонов", with: "сезонов ")
                             animeSeries = animeSeries.replacingOccurrences(of: "серий", with: "серий ")
-                            
                             // MARK: - APPEND ANIME To Array
                             let anime = Anime(name: animeName, link: animeLink, series: animeSeries, poster: imgLink)
                             animeList.append(anime)

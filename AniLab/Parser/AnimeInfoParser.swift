@@ -12,27 +12,25 @@ extension HTMLParser {
     //MARK: - GET ANIME INFO
     static func getAnimeInfo(from url: String, completion: @escaping ([AnimeInfo]) -> Void) {
             var animeInfoArr = [AnimeInfo]()
-            
             guard let myUrl = URL(string: url) else { fatalError() }
             let request = URLRequest(url: myUrl)
             
             URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
-                    print("Error \(error)")
+                    Alerts.ErrorInURLSessionAlert()
                     return
                 }
                 
                 if let data = data, let dataString = String(data: data, encoding: .windowsCP1251) {
                     if let doc = try? HTML(html: dataString, encoding: .windowsCP1251) {
-                        var animeInfo = AnimeInfo(originalTitle: "", yearOfIssue: "", genre: "", rating: "", ageRating: "")
                         
-                        animeInfo.ageRating = extractAgeRating(from: doc)
-                        animeInfo.rating = extractRating(from: doc)
-                        animeInfo.originalTitle = extractOriginalTitle(from: doc)
-                        animeInfo.yearOfIssue = extractYearOfIssue(from: doc)
-                        animeInfo.genre = extractGenre(from: doc)
-                        
-                        animeInfoArr.append(animeInfo)
+                        animeInfoArr.append(AnimeInfo(
+                            originalTitle: extractOriginalTitle(from: doc),
+                            yearOfIssue: extractYearOfIssue(from: doc),
+                            genre: extractGenre(from: doc),
+                            rating: extractRating(from: doc),
+                            ageRating: extractAgeRating(from: doc)))
+                        print(animeInfoArr)
                         completion(animeInfoArr)
                     }
                 }
