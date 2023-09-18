@@ -30,7 +30,6 @@ extension HTMLParser {
                     for source in sources {
                         if let src = source["src"], let title = source["label"] {
                             qualities.append(VideoQuality(title: title, link: src))
-                            print(src)
                         }
                     }
                     completion(qualities)

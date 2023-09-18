@@ -36,17 +36,33 @@ class VideoQualityTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let videoURL = URL(string: videoQuality[indexPath.row].link)!
+        let viewModel = DownloadViewModel()
         let userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.0.0 Safari/537.36 OPR/100.0.0.0"
-        let headers = ["User-Agent": userAgent]
-        let asset = AVURLAsset(url: videoURL, options: ["AVURLAssetHTTPHeaderFieldsKey": headers])
-        let playerItem = AVPlayerItem(asset: asset)
-        let player = AVPlayer(playerItem: playerItem)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        present(playerViewController, animated: true) {
-            player.play()
+        let videoURL = URL(string: videoQuality[indexPath.row].link)!
+        
+        let alert = UIAlertController(title: "Выберете де действие", message: "", preferredStyle: .alert)
+        
+        let SeeButton = UIAlertAction(title: "Смотреть", style: .default) { [self] alertAction in
+            let headers = ["User-Agent": userAgent]
+            let asset = AVURLAsset(url: videoURL, options: ["AVURLAssetHTTPHeaderFieldsKey": headers])
+            let playerItem = AVPlayerItem(asset: asset)
+            let player = AVPlayer(playerItem: playerItem)
+            let playerViewController = AVPlayerViewController()
+            playerViewController.player = player
+            present(playerViewController, animated: true) {
+                player.play()
+            }
         }
+        
+        let DownloadButton = UIAlertAction(title: "Скачать", style: .cancel) { alertAction in
+                viewModel.downloadVideo(url: videoURL, UserAgent: userAgent)
+            }
+        
+        alert.addAction(DownloadButton)
+        alert.addAction(SeeButton)
+        self.present(alert, animated: true, completion: nil)
+        
+        
     }
 }
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D0BCF702AAF50D200CB6459 /* AnimeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BCF6F2AAF50D200CB6459 /* AnimeInfoViewController.swift */; };
 		0D10E5252AB0A359005E3F6D /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D10E5242AB0A359005E3F6D /* EpisodeTableViewCell.swift */; };
+		0D1E6EA42AB7F66400FD2147 /* videoDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1E6EA32AB7F66400FD2147 /* videoDownloader.swift */; };
 		0D39115A2AB5F2CB00C4F68B /* FavouriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3911592AB5F2CB00C4F68B /* FavouriteTableViewController.swift */; };
 		0D39115C2AB6104300C4F68B /* AnimeGenres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D39115B2AB6104300C4F68B /* AnimeGenres.swift */; };
 		0D39115E2AB614A700C4F68B /* AnimeOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D39115D2AB614A700C4F68B /* AnimeOrder.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		0D0BCF6F2AAF50D200CB6459 /* AnimeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeInfoViewController.swift; sourceTree = "<group>"; };
 		0D10E5242AB0A359005E3F6D /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
+		0D1E6EA32AB7F66400FD2147 /* videoDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = videoDownloader.swift; sourceTree = "<group>"; };
 		0D3911592AB5F2CB00C4F68B /* FavouriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewController.swift; sourceTree = "<group>"; };
 		0D39115B2AB6104300C4F68B /* AnimeGenres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeGenres.swift; sourceTree = "<group>"; };
 		0D39115D2AB614A700C4F68B /* AnimeOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeOrder.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				0DE56EA32AACA6660012EB68 /* Project */,
 				0DE56EA22AACA64E0012EB68 /* Controller */,
 				0D7228CF2AB476200064F0D6 /* FavoutriteManager.swift */,
+				0D1E6EA32AB7F66400FD2147 /* videoDownloader.swift */,
 			);
 			path = AniLab;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				0DE2DBC52AB1CB1D0077194D /* SortTableViewController.swift in Sources */,
 				0DB549532AB06D50001487F2 /* VideoQualityTableViewController.swift in Sources */,
 				0DCB542F2AAF15F400C54013 /* AnimeInfoParser.swift in Sources */,
+				0D1E6EA42AB7F66400FD2147 /* videoDownloader.swift in Sources */,
 				0DB5495B2AB076AF001487F2 /* VideoQuality.swift in Sources */,
 				0DB549592AB07193001487F2 /* AnimeVideoQuality.swift in Sources */,
 				0DD460C72AA9D63D008EEA81 /* HTMLParser.swift in Sources */,

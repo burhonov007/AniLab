@@ -36,7 +36,6 @@ class EpisodesTableViewController: UITableViewController {
         HTMLParser.getVideoQuality(from: episodelink) { videoQualities in
             self.animeVideoQualities = videoQualities
             DispatchQueue.main.async {
-                print(episodelink)
                 let VideoQualityVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoQualityVC") as! VideoQualityTableViewController
                 VideoQualityVC.videoQuality = self.animeVideoQualities
                 self.navigationController?.pushViewController(VideoQualityVC, animated: true)
