@@ -129,9 +129,4 @@ class DownloadViewModel: NSObject, ObservableObject, URLSessionDownloadDelegate 
             }
         })
     }
-    
-    
-    
-    
-    
 }

@@ -62,7 +62,7 @@ class VideoQualityTableViewController: UITableViewController {
         alert.addAction(SeeButton)
         self.present(alert, animated: true, completion: nil)
         
-        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
