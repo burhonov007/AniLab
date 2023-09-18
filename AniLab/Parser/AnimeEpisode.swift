@@ -10,6 +10,7 @@ import Kanna
 
 
 extension HTMLParser {
+    
     //MARK: - GET ANIME EPISODES
     static func getEpisodes(from url: String, animeName: String, completion: @escaping ([Episodes]) -> Void) {
 

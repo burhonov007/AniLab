@@ -9,7 +9,9 @@ import Foundation
 import Kanna
 
 extension HTMLParser {
+    //MARK: - GET ANIME VideoQualitys
     static func getVideoQuality(from url: String, completion: @escaping ([VideoQuality]) -> Void) {
+        
         var qualities = [VideoQuality]()
         let myUrl = URL(string: url)
         guard let requestUrl = myUrl else { fatalError() }
@@ -28,6 +30,7 @@ extension HTMLParser {
                     for source in sources {
                         if let src = source["src"], let title = source["label"] {
                             qualities.append(VideoQuality(title: title, link: src))
+                            print(src)
                         }
                     }
                     completion(qualities)

@@ -64,11 +64,7 @@ class FilterTableViewController: UITableViewController {
             if let index = filterLink.firstIndex(of: filterList[indexPath.row].link) {
                 filterLink.remove(at: index)
             }
-            
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-
-
 }

@@ -6,10 +6,7 @@ public class HTMLParser {
     // MARK: - GET Anime NAME, LINK, SERIES COUNT, IMAGELINK
     static func getHTML(from url: String, completion: @escaping ([Anime]) -> Void) {
         var animeList: [Anime] = []
-        guard let myURL = URL(string: url) else {
-            completion([])
-            return
-        }
+        guard let myURL = URL(string: url) else { return }
         let request = URLRequest(url: myURL)
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
@@ -33,10 +30,10 @@ public class HTMLParser {
                             animeSeries = animeSeries.replacingOccurrences(of: "сезона", with: "сезона ")
                             animeSeries = animeSeries.replacingOccurrences(of: "сезонов", with: "сезонов ")
                             animeSeries = animeSeries.replacingOccurrences(of: "серий", with: "серий ")
+                            
                             // MARK: - APPEND ANIME To Array
                             let anime = Anime(name: animeName, link: animeLink, series: animeSeries, poster: imgLink)
                             animeList.append(anime)
-                            
                         }
                     }
                     if animeList.count == 0 {

@@ -33,16 +33,8 @@ class EpisodesTableViewController: UITableViewController {
         
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let episodelink = "https://jut.su\(AnimeEpisodes[indexPath.row].link)"
-        print(episodelink)
-
-        
-        
         HTMLParser.getVideoQuality(from: episodelink) { videoQualities in
-            
-            print("Received videoQualities:", videoQualities)
-            
             self.animeVideoQualities = videoQualities
-            
             DispatchQueue.main.async {
                 print(episodelink)
                 let VideoQualityVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoQualityVC") as! VideoQualityTableViewController

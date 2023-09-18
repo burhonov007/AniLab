@@ -9,6 +9,7 @@ import Foundation
 import Kanna
 
 extension HTMLParser {
+    
     //MARK: - GET ANIME INFO
     static func getAnimeInfo(from url: String, completion: @escaping ([AnimeInfo]) -> Void) {
             var animeInfoArr = [AnimeInfo]()

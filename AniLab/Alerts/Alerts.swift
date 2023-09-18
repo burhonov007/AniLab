@@ -19,6 +19,7 @@ class Alerts {
         viewController.present(alert, animated: true, completion: nil)
     }
     
+    // MARK: - Alert for animes when Internet not ON
     static func ErrorInURLSessionAlert() {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: "Ошибка", message: "Произошла ошибка при загрузке данных включите интернет или перезагрузите приложение", preferredStyle: .alert)

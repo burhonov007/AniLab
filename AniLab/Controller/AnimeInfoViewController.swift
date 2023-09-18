@@ -42,7 +42,6 @@ class AnimeInfoViewController: UIViewController {
             }
         }
         
-        
         isAnimeAddedToFavourites = loadedAnimeList.contains { anime in
             return anime.name == self.title
         }
@@ -50,7 +49,7 @@ class AnimeInfoViewController: UIViewController {
         if isAnimeAddedToFavourites {
             animeAdded()
         } else {
-            animeDeleted()
+            animeNotAdded()
         }
     }
 
@@ -65,7 +64,7 @@ class AnimeInfoViewController: UIViewController {
                 return anime.name == self.title
             }
             FavouriteManager.saveData(animeList: loadedAnimeList)
-            animeDeleted()
+            animeNotAdded()
             isAnimeAddedToFavourites = false
         }
     }
@@ -76,7 +75,7 @@ class AnimeInfoViewController: UIViewController {
         addToFavouritesButton.backgroundColor = UIColor.yellow
     }
     
-    func animeDeleted() {
+    func animeNotAdded() {
         addToFavouritesButton.setTitle("В избранное", for: .normal)
         addToFavouritesButton.backgroundColor = UIColor.white
         addToFavouritesButton.layer.borderWidth = 2.0
