@@ -19,7 +19,7 @@ extension HTMLParser {
         var request = URLRequest(url: requestUrl)
         request.setValue(userAgent, forHTTPHeaderField: "User-Agent")
         URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
+            if let _ = error {
                 Alerts.ErrorInURLSessionAlert()
                 completion([]) 
                 return

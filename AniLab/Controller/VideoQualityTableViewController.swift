@@ -55,8 +55,12 @@ class VideoQualityTableViewController: UITableViewController {
         }
         
         let DownloadButton = UIAlertAction(title: "Скачать", style: .cancel) { alertAction in
-                viewModel.downloadVideo(url: videoURL, UserAgent: userAgent)
-            }
+            viewModel.downloadVideo(url: videoURL, UserAgent: userAgent)
+        }
+        
+        _ = UIAlertAction(title: "OK", style: .cancel) { alertAction in
+            
+        }
         
         alert.addAction(DownloadButton)
         alert.addAction(SeeButton)

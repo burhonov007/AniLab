@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "Frame 1@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "filter.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

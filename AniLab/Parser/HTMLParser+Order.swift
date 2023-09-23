@@ -20,7 +20,7 @@ extension HTMLParser {
         }
         let request = URLRequest(url: myURL)
         URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
+            if let _ = error {
                 Alerts.ErrorInURLSessionAlert()
                 completion([])
                 return
@@ -28,7 +28,7 @@ extension HTMLParser {
             // GET HTML from web site
             if let data = data, let dataString = String(data: data, encoding: .windowsCP1251) {
                 if let doc = try? HTML(html: dataString, encoding: .windowsCP1251) {
-                    if let text = doc.at_css(".anime_choose_block_order")?.innerHTML {
+                    if let _ = doc.at_css(".anime_choose_block_order")!.innerHTML {
                         for orderElement in doc.css(".anime_choose_order") {
                             if let link = orderElement.at_css("a")?["href"] {
                                 let title = orderElement.at_css("a")?.text

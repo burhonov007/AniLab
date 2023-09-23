@@ -12,19 +12,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //  MARK: - Loader
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var animeTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: - Properties
-    var animeList: [Anime] = []
-    var searchedAnimeList: [Anime] = []
+    private var animeList: [Anime] = []
+    private var searchedAnimeList: [Anime] = []
     var sortLink = ""
     var filterLink = ""
     private var currentPage = 0
+    private var currentPageForSearch = 0
     var goToAnotherPage: Bool = true
+    var goToAnotherPageForSearch: Bool = true
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "AniWatch"
+        self.searchBar.delegate = self
+        title = "Otaku"
+        activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         loadNextPage()
     }
@@ -50,14 +55,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - Load Pages (Pagination)
     private func loadNextPage() {
+        activityIndicator.startAnimating()
+        searchedAnimeList = []
         currentPage += 1
         let nextPageURL = "https://jut.su/anime/\(filterLink)\(sortLink)/page-\(currentPage)/"
         HTMLParser.getHTML(from: nextPageURL) { [weak self] animeData in
             if !animeData.isEmpty {
                 self?.animeList += animeData
                 DispatchQueue.main.async {
-                    self!.activityIndicator.stopAnimating()
-                    self!.activityIndicator.isHidden = true
                     self!.animeTableView.reloadData()
                 }
             } else {
@@ -66,8 +71,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     if !self!.filterLink.isEmpty && self!.animeList.isEmpty {
                         Alerts.AccessDeniedAlertOrNoData(title: "Нет аниме", message: "По выбранным вами критериям аниме отсутствуют. Пожалуйста, укажите другие категории.", viewController: self!)
                     }
-                    self!.activityIndicator.stopAnimating()
-                    self!.activityIndicator.isHidden = true
+                    self?.activityIndicator.stopAnimating()
+                }
+            }
+        }
+    }
+    
+    
+    private func loadNextPageForSearch() {
+        currentPageForSearch += 1
+        HTMLParser.search(page: currentPageForSearch, searchText: searchBar.text!) { [weak self] searchedAnime in
+            if !searchedAnime.isEmpty {
+                self?.searchedAnimeList += searchedAnime
+                DispatchQueue.main.async {
+                    self!.animeTableView.reloadData()
+                }
+                
+            } else {
+                self!.goToAnotherPageForSearch = false
+                if self!.searchedAnimeList.isEmpty {
+                    DispatchQueue.main.async {
+                        Alerts.AccessDeniedAlertOrNoData(title: "Нет аниме", message: "По указанным вами критериям аниме отсутствуют..", viewController: self!)
+                        self?.activityIndicator.stopAnimating()
+                    }
                 }
             }
         }
@@ -76,26 +102,48 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     // MARK: - numberOfRowsInSection
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animeList.count
+        if !searchedAnimeList.isEmpty {
+            return searchedAnimeList.count
+        } else {
+            return animeList.count
+        }
         
     }
 
     // MARK: - cellForRowAt
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = animeTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
-        let anime = animeList[indexPath.row]
-        cell.configure(with: anime)
-        if goToAnotherPage {
-            if indexPath.row >= animeList.count - 1 {
-                loadNextPage()
+        DispatchQueue.main.async { [self] in
+            if !searchedAnimeList.isEmpty {
+                let anime = searchedAnimeList[indexPath.row]
+                cell.configure(with: anime)
+                if goToAnotherPageForSearch {
+                    if indexPath.row >= searchedAnimeList.count - 1 {
+                        loadNextPageForSearch()
+                    }
+                }
+            } else {
+                let anime = animeList[indexPath.row]
+                cell.configure(with: anime)
+                if goToAnotherPage {
+                    if indexPath.row >= animeList.count - 1 {
+                        loadNextPage()
+                    }
+                }
             }
         }
+        self.activityIndicator.stopAnimating()
         return cell
     }
     
     // MARK: - didSelectRowAt (SEND data to AnimeDetailViewController and Show in UI)
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let anime = animeList[indexPath.row]
+        var anime: Anime
+        if !searchedAnimeList.isEmpty {
+            anime = searchedAnimeList[indexPath.row]
+        } else {
+            anime = animeList[indexPath.row]
+        }
         let animeInfoVC = storyboard?.instantiateViewController(withIdentifier: "AnimeDetailVС") as! AnimeInfoViewController
         animeInfoVC.series = anime.series
         animeInfoVC.title = anime.name
@@ -106,3 +154,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 }
 
+
+// MARK: - Search Delegate
+
+extension ViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchedAnimeList = []
+        currentPageForSearch = 0
+        if !searchBar.text!.isEmpty {
+            loadNextPageForSearch()
+        }
+      }
+
+      func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+          searchedAnimeList = []
+          animeTableView.reloadData()
+          searchBar.text = ""
+      }
+}

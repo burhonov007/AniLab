@@ -27,12 +27,10 @@ class CustomTableViewCell: UITableViewCell {
             if let data = data, let image = UIImage(data: data) {
                 DispatchQueue.main.async {
                     self?.animeImageView.image = image
+                    self?.animeImageView.layer.cornerRadius = self!.animeImageView.frame.height / 2
+                    self?.animeImageView.clipsToBounds = true
                 }
             }
         }.resume()
-        
-        animeImageView.layer.cornerRadius = animeImageView.frame.height / 2
-        animeImageView.clipsToBounds = true
     }
-
 }

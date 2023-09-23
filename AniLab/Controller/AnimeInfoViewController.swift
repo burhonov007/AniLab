@@ -104,7 +104,7 @@ class AnimeInfoViewController: UIViewController {
             
             if let imageUrl = URL(string: posterUrl) {
                 URLSession.shared.dataTask(with: imageUrl) { data, response, error in
-                    if let error = error {
+                    if let _ = error {
                         self.poster.image = UIImage(named: "noimage")
                         return
                     }

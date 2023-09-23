@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "kamado.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "filter.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
